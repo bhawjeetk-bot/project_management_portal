@@ -1,0 +1,51 @@
+<div class="modal">
+  <div class="modal-content wide">
+    <div class="task-detail-header">
+      <h3>{{ task.title }}</h3>
+      <button class="danger small" (click)="deleteTask.emit(task.id)">Delete Task</button>
+    </div>
+    <p class="td-description">{{ task.description || 'No description provided.' }}</p>
+
+    <div class="td-meta">
+      <label>
+        Status:
+        <select [ngModel]="task.status" (ngModelChange)="onStatusChange($event)">
+          <option value="todo">To Do</option>
+          <option value="inprogress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </label>
+      <label>
+        Assignee:
+        <select [ngModel]="task.assignedTo?.id ?? null" (ngModelChange)="onAssigneeChange($event)">
+          <option [ngValue]="null">Unassigned</option>
+          <option *ngFor="let m of members" [ngValue]="m.id">{{ m.username }}</option>
+        </select>
+      </label>
+    </div>
+
+    <hr />
+    <h4>Comments</h4>
+    <div class="comments-list">
+      <p *ngIf="loading">Loading comments...</p>
+      <div class="comment-item" *ngFor="let c of comments">
+        <span class="c-user">{{ c.user.username }}</span>
+        <span class="c-time">{{ c.createdAt | date: 'medium' }}</span>
+        <div>{{ c.text }}</div>
+      </div>
+    </div>
+    <div class="comment-input-row">
+      <input
+        type="text"
+        placeholder="Write a comment..."
+        [(ngModel)]="commentText"
+        (keydown.enter)="submitComment()"
+      />
+      <button (click)="submitComment()">Send</button>
+    </div>
+
+    <div class="modal-actions">
+      <button class="secondary" (click)="close.emit()">Close</button>
+    </div>
+  </div>
+</div>

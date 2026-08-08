@@ -1,0 +1,11 @@
+<div class="modal">
+  <div class="modal-content">
+    <h3>New Project</h3>
+    <input type="text" placeholder="Project name" [(ngModel)]="name" />
+    <textarea placeholder="Description (optional)" [(ngModel)]="description"></textarea>
+    <div class="modal-actions">
+      <button class="secondary" (click)="close.emit()">Cancel</button>
+      <button class="primary" (click)="submit()">Create</button>
+    </div>
+  </div>
+</div>

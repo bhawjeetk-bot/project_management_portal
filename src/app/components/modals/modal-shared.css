@@ -1,0 +1,118 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modal-content {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 12px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal-content.wide {
+  width: 520px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal-content h3 {
+  margin: 0 0 6px;
+}
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  padding: 9px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  width: 100%;
+  font-family: inherit;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+.modal-actions button {
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.modal-actions .secondary {
+  background: #eef0f5;
+  color: var(--text);
+}
+.modal-actions .primary {
+  background: var(--primary);
+  color: white;
+}
+.task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.td-description {
+  color: var(--muted);
+  font-size: 14px;
+}
+.td-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  margin: 8px 0;
+}
+.danger {
+  background: var(--danger);
+  color: white;
+  border: none;
+}
+.danger.small {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+.comment-item {
+  background: #f5f6fa;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.comment-item .c-user {
+  font-weight: 600;
+  margin-right: 6px;
+}
+.comment-item .c-time {
+  color: var(--muted);
+  font-size: 11px;
+}
+.comment-input-row {
+  display: flex;
+  gap: 8px;
+}
+.comment-input-row input {
+  flex: 1;
+}
+.comment-input-row button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}

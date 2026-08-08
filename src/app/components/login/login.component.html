@@ -1,0 +1,9 @@
+<section class="login-screen">
+  <div class="login-card">
+    <h1>  ProjectManager 📋 </h1>
+    <p class="subtitle">Project Management Portal</p>
+    <button class="login-btn" [disabled]="authenticating" (click)="onLoginClick()">
+      {{ authenticating ? 'Logging in...' : 'Login' }}
+    </button>
+  </div>
+</section>

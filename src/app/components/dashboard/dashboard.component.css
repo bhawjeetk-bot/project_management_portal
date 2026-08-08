@@ -1,0 +1,61 @@
+.app-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: whitesmoke; 
+  /* background-image: url('/3391464.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; */
+}
+
+.topbar {
+  background: linear-gradient(135deg, #13ccda,rgb(194, 17, 238));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 14px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: #fff;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-info {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+}
+
+
+.app-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.board-area {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-left: 1px solid rgba(255,255,255,0.1);
+  /* background-image: url('/3391464.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; */
+}

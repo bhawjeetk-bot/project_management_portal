@@ -1,0 +1,57 @@
+<section class="app-screen" *ngIf="user">
+  <header class="topbar">
+    <h2>📋 Project Manager</h2>
+  </header>
+
+  <main class="app-body">
+    <app-sidebar
+      [projects]="projects"
+      [currentProject]="currentProject"
+      (selectProject)="selectProject($event)"
+      (newProject)="showNewProject = true"
+    ></app-sidebar>
+
+    <section class="board-area">
+      <app-board
+        [project]="currentProject"
+        [tasks]="tasks"
+        (addMember)="showAddMember = true"
+        (addTask)="showNewTask = true"
+        (openTask)="openTask($event)"
+        (deleteProject)="onDeleteProject($event)"
+      ></app-board>
+    </section>
+  </main>
+
+  <app-new-project-modal
+    *ngIf="showNewProject"
+    (close)="showNewProject = false"
+    (create)="createProject($event)"
+  ></app-new-project-modal>
+
+  <app-add-member-modal
+    *ngIf="showAddMember && currentProject"
+    (close)="showAddMember = false"
+    (add)="addMember($event)"
+  ></app-add-member-modal>
+
+  <app-new-task-modal
+    *ngIf="showNewTask && currentProject"
+    [members]="currentProject.members"
+    (close)="showNewTask = false"
+    (create)="createTask($event)"
+  ></app-new-task-modal>
+
+  <app-task-detail-modal
+    *ngIf="activeTask && currentProject"
+    [task]="activeTask!"
+    [members]="currentProject.members"
+    [incomingComment]="incomingComment"
+    (close)="activeTask = null"
+    (statusChange)="onStatusChange($event)"
+    (assigneeChange)="onAssigneeChange($event)"
+    (deleteTask)="onDeleteTask($event)"
+  ></app-task-detail-modal>
+
+  <app-toast [message]="toastMessage"></app-toast>
+</section>

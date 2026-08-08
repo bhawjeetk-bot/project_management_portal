@@ -1,0 +1,7 @@
+<div class="task-card" (click)="open.emit(task.id)">
+  <div class="t-title">{{ task.title }}</div>
+  <div class="t-meta">
+    <span>{{ task.assignedTo ? '👤 ' + task.assignedTo.username : 'Unassigned' }}</span>
+    <span>{{ task.dueDate ? (task.dueDate | date: 'mediumDate') : '' }}</span>
+  </div>
+</div>

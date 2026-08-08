@@ -1,0 +1,100 @@
+.empty-msg {
+  color: black;
+  text-align: center;
+  margin-top: 120px;
+  font-size: 18px;
+  font-weight: 400;
+
+}
+
+/* HEADER */
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+  color: black;
+}
+
+.board-header h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.board-header p {
+  margin: 0;
+  color: black;
+  font-size: 14px;
+}
+
+/* ACTION BUTTONS */
+.board-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.board-actions button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.delete-btn{
+  background: rgb(194, 13, 13);
+  color:white;
+}
+
+/* SAME STYLE FOR BOTH BUTTONS */
+.add-task-btn,
+.add-member-btn {
+  background: linear-gradient(135deg, #3b82f6, #7c3aed);
+  color: white;
+}
+
+/* HOVER EFFECT */
+.add-task-btn:hover,
+.add-member-btn:hover,
+.delete-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* MEMBERS */
+.members-line {
+  color: black;
+  font-size: 13px;
+  margin: 10px 0 20px;
+}
+
+/* BOARD */
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.column {
+  background: #f5f6fa; /* removed blur for cleaner UI */
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid #ddd;
+  min-height: 320px;
+}
+
+.column h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

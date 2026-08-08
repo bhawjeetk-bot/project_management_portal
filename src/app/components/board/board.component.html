@@ -1,0 +1,28 @@
+<div *ngIf="!project" class="empty-msg"> Select or create a project to get started</div>
+
+<div *ngIf="project">
+  <div class="board-header">
+    <div>
+      <h2>{{ project.name }}</h2>
+      <p>{{ project.description || 'No description' }}</p>
+    </div>
+    <div class="board-actions">
+      <button class="delete-btn" (click)="onDelete()">Delete</button>
+      <button class="add-member-btn" (click)="addMember.emit()">Add Member</button>
+      <button class="add-task-btn" (click)="addTask.emit()">+ New Task</button>
+    </div>
+  </div>
+  <p class="members-line">Members: {{ memberNames() }}</p>
+  <div class="board-columns">
+    <div class="column" *ngFor="let col of columns">
+      <h4>{{ col.label }}</h4>
+      <div class="task-list">
+        <app-task-card
+          *ngFor="let t of tasks | taskFilter: col.key"
+          [task]="t"
+          (open)="openTask.emit($event)"
+        ></app-task-card>
+      </div>
+    </div>
+  </div>
+</div>

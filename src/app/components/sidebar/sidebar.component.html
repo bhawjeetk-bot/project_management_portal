@@ -1,0 +1,15 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h3>Projects</h3>
+    <button class="new-project-btn" title="New project" (click)="newProject.emit()">+</button>
+  </div>
+  <ul class="project-list">
+    <li
+      *ngFor="let p of projects"
+      [class.active]="currentProject && currentProject.id === p.id"
+      (click)="selectProject.emit(p.id)"
+    >
+      {{ p.name }}
+    </li>
+  </ul>
+</aside>

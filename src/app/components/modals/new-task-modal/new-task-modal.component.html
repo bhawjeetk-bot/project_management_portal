@@ -1,0 +1,17 @@
+<div class="modal">
+  <div class="modal-content">
+    <h3>New Task Details</h3>
+    <input type="text" placeholder="Task title" [(ngModel)]="title" />
+    <textarea placeholder="Description (optional)" [(ngModel)]="description"></textarea>
+    <select placeholder="Select user" [(ngModel)]="assignedTo">
+      <option [ngValue]="null">Unassigned</option>
+      <option *ngFor="let m of members" [ngValue]="m.id">{{ m.username }}</option>
+    </select>
+    <label>Due Date</label>
+    <input type="date" [(ngModel)]="dueDate" />
+    <div class="modal-actions">
+      <button class="secondary" (click)="close.emit()">Cancel</button>
+      <button class="primary" (click)="submit()">Create Task</button>
+    </div>
+  </div>
+</div>

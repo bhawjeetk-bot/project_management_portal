@@ -1,0 +1,10 @@
+<div class="modal">
+  <div class="modal-content">
+    <h3>Add Member by Email</h3>
+    <input type="email" placeholder="teammate&#64;example.com" [(ngModel)]="email" />
+    <div class="modal-actions">
+      <button class="secondary" (click)="close.emit()">Cancel</button>
+      <button class="primary" (click)="submit()">Add</button>
+    </div>
+  </div>
+</div>
