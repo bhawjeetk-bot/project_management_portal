@@ -31,14 +31,6 @@ The Angular app uses `@angular/router` with two routes:
 
 Tapping **Login** silently establishes the (demo) session via `AuthService`, then navigates to `/dashboard`. The guard just checks that a token exists in `localStorage` before allowing entry — it doesn't re-authenticate, so refreshing on `/dashboard` after logging in works without bouncing back to `/login`.
 
-## A note on "no password"
-
-The task brief calls for an **auth system**, so the API still requires a valid JWT on every request — nothing is open to the public internet unauthenticated. What's simplified is the login *form*: there's a real `/login` page and route, but it only has a "Login" button — no email/password fields. Tapping it calls a small routine that logs into (or, on first run, silently registers) one shared **demo account** and stores its token, then routes to `/dashboard`.
-
-This means everyone using this deployment currently shares one identity ("demo"). If you want real per-user accounts back, you have two clean options:
-1. Add email/password fields to `LoginComponent` and call the same `/api/auth/login/` and `/api/auth/register/` endpoints (already implemented and tested) — no backend change needed.
-2. Or, if you'd rather have a genuinely public, no-auth API instead, remove `IsAuthenticated` from `REST_FRAMEWORK.DEFAULT_PERMISSION_CLASSES` in `backend-django/config/settings.py` and drop the token handling from the Angular services, plus the route guard — ask and I can do this variant instead.
-
 ## Project Structure
 
 ```
