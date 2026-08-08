@@ -31,35 +31,6 @@ The Angular app uses `@angular/router` with two routes:
 
 Tapping **Login** silently establishes the (demo) session via `AuthService`, then navigates to `/dashboard`. The guard just checks that a token exists in `localStorage` before allowing entry — it doesn't re-authenticate, so refreshing on `/dashboard` after logging in works without bouncing back to `/login`.
 
-## Project Structure
-
-```
-ProjectManagementTool/
-├── backend-django/
-│   ├── config/            # settings, urls, asgi (Channels routing), wsgi
-│   ├── accounts/           # register/login/me (JWT)
-│   ├── projects/           # Project, Task, Comment models + views + websocket consumer
-│   ├── manage.py
-│   ├── requirements.txt
-│   └── .env.example
-└── frontend-angular/
-    ├── src/app/
-    │   ├── models/          # TypeScript interfaces
-    │   ├── services/        # api.service, auth.service, websocket.service
-    │   ├── interceptors/     # JWT auth interceptor
-    │   ├── guards/           # authGuard (protects /dashboard)
-    │   ├── pipes/            # task-filter pipe (board columns)
-    │   ├── components/
-    │   │   ├── login/        # /login — single button, no fields
-    │   │   ├── dashboard/     # /dashboard — sidebar + board + modals
-    │   │   ├── sidebar/, board/, task-card/, toast/
-    │   │   └── modals/ (new-project, add-member, new-task, task-detail)
-    │   ├── app.routes.ts     # route table
-    │   └── app.component.ts  # root shell — just a <router-outlet>
-    ├── src/environments/environment.ts
-    └── package.json
-```
-
 ## Setup & Run
 
 ### 1. Backend (Django)
